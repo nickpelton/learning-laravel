@@ -11,6 +11,17 @@
 |
 */
 
+// No controller
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Auth UI Routes
+Auth::routes(['register' => false]); // Laravel Auth package, register disabled
+// SSO Auth UI Socialite Routes
+Route::get('login/{provider}', 'Auth\SocialLoginController@redirect');
+Route::get('login/{provider}/callback','Auth\SocialLoginController@Callback');
+
+// Dashboard UI Routes
+Route::get('profile', 'ProfileController@index')->name('profile');
+
