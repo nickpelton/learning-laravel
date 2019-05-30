@@ -63,7 +63,6 @@ class SocialLoginController extends Controller
 			$newUser = User::create([
 				'name'          => $userSocial->getName(),
 				'email'         => $userSocial->getEmail(),
-				'image'         => $userSocial->getAvatar(),
 				'provider_id'   => $userSocial->getId(),
 				'provider'      => $provider,
 				'password'		=> md5(time() . rand(1,999) )
