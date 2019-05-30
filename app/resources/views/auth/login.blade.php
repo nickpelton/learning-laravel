@@ -54,7 +54,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Email Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
@@ -62,6 +62,14 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <a class="btn btn-primary" href="{{ url('/login/google') }}">
+                                    {{ __('Google Login') }}
+                                </a>
                             </div>
                         </div>
                     </form>

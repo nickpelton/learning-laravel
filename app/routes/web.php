@@ -16,9 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth Routes
-Auth::routes(['register' => false]);
+// Auth UI Routes
+Auth::routes(['register' => false]); // Laravel Auth package, register disabled
+// SSO Auth UI Socialite Routes
+Route::get('login/{provider}', 'Auth\SocialLoginController@redirect');
+Route::get('login/{provider}/callback','Auth\SocialLoginController@Callback');
 
-// Controller Routes
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'ProfileController@index')->name('profile');
+// Dashboard UI Routes
+Route::get('profile', 'ProfileController@index')->name('profile');
+
