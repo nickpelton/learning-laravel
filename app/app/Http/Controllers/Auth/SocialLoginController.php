@@ -15,7 +15,7 @@ class SocialLoginController extends Controller
 {
 
 	private const ALLOWED_PROVIDERS = [
-		'google'
+		'google',
 	];
 
 	/**
@@ -72,8 +72,12 @@ class SocialLoginController extends Controller
 		return redirect('/profile');
 	}
 
-	private function IsAllowedProvider($provider): bool {
+	public function IsAllowedProvider($provider): bool {
 		return in_array( $provider, $this::ALLOWED_PROVIDERS , true );
+	}
+
+	public function getProviders() : array{
+		return $this::ALLOWED_PROVIDERS;
 	}
 
 }
